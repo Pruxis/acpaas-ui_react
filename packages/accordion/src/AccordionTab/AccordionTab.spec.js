@@ -55,4 +55,10 @@ describe('AccordionTab', () => {
 
     expect(component.find('.m-accordion__tab').props()).toHaveProperty('data-qa', 'id-1234');
   });
+  
+  test('Can overwrite toggle handler', () => {
+    const toggleFn = jest.fn();
+    const component = shallow(<AccordionTab toggle={toggleFn} />);
+    expect(toggle.mocks.calls.length).toBe(1);
+  })
 });
